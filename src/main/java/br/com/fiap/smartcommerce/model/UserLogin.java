@@ -23,7 +23,7 @@ public class UserLogin {
 
 	@Id
 	@SequenceGenerator(name="userlogin",sequenceName="sql_tbl_userlogin",allocationSize=1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator="aluno")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "id_userlogin")
 	private Integer id;
 	

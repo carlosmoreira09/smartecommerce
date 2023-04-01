@@ -11,5 +11,10 @@
 			return "home/index";
 		}
 		
+		@GetMapping("/produto")
+		public String produto() {
+			return "home/produto";
+		}
+		
 }
 

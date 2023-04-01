@@ -13,7 +13,7 @@
 	</bean>
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="smartcommerce" />
+		<property name="persistenceUnitName" value="smartecommerce" />
 		<property name="dataSource" ref="oracleDataSource" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />

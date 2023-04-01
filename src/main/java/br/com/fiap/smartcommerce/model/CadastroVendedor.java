@@ -22,7 +22,7 @@ public class CadastroVendedor {
 
 	@Id
 	@SequenceGenerator(name="cadastroVendedor",sequenceName="sql_tbl_cadastroVendedor",allocationSize=1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator="vendedor")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "id_vendedor")
 	private Integer id;
 	
