@@ -5,20 +5,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.fiap.smartecommerce.dao.CadastrarProdutoDAO;
-import br.com.fiap.smartecommerce.model.CadastroProduto;
+import br.com.fiap.smartecommerce.dao.CadastroClienteDAO;
+import br.com.fiap.smartecommerce.model.CadastroCliente;
 
 @Controller
-@RequestMapping("produto")
-public class CadastrarProdutoController {
+@RequestMapping("cliente")
+public class CadastroClienteController {
 		
 	
 	@Autowired
-	private CadastrarProdutoDAO dao;
+	private CadastroClienteDAO dao;
 
 	@GetMapping("/")
-	public String abrirForm(CadastroProduto produto) {
-		return "produto/cadastrarproduto";
+	public String abrirForm(CadastroCliente cliente) {
+		return "cliente/cadastrocliente";
 	}
 
 }
