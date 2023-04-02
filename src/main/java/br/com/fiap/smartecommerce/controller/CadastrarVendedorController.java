@@ -1,4 +1,4 @@
-package br.com.fiap.smartcommerce.controller;
+package br.com.fiap.smartecommerce.controller;
 
 public class CadastrarVendedorController {
 

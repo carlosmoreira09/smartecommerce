@@ -1,4 +1,4 @@
-package br.com.fiap.smartcommerce.model;
+package br.com.fiap.smartecommerce.model;
 
 import java.util.Calendar;
 

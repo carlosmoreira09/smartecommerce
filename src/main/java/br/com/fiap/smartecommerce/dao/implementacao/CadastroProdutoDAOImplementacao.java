@@ -1,8 +1,9 @@
-package br.com.fiap.smartcommerce.dao.implementacao;
+package br.com.fiap.smartecommerce.dao.implementacao;
 
-import br.com.fiap.smartcommerce.dao.CadastrarProdutoDAO;
 import org.springframework.stereotype.Repository;
-import br.com.fiap.smartcommerce.model.CadastroProduto;
+
+import br.com.fiap.smartecommerce.dao.CadastrarProdutoDAO;
+import br.com.fiap.smartecommerce.model.CadastroProduto;
 
 
 @Repository

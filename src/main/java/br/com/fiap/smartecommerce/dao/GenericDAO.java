@@ -1,4 +1,4 @@
-package br.com.fiap.smartcommerce.dao;
+package br.com.fiap.smartecommerce.dao;
 
 import java.util.List;
 

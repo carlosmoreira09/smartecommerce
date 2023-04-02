@@ -1,10 +1,11 @@
-package br.com.fiap.smartcommerce.dao.implementacao;
+package br.com.fiap.smartecommerce.dao.implementacao;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import br.com.fiap.smartcommerce.dao.GenericDAO;
+
+import br.com.fiap.smartecommerce.dao.GenericDAO;
 
 public class GenericDAOImplementacao<T,K> implements GenericDAO<T, K>{
 
