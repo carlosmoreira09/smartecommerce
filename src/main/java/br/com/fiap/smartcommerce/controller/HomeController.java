@@ -11,9 +11,17 @@
 			return "home/index";
 		}
 		
-		@GetMapping("/produto")
-		public String produto() {
-			return "home/produto";
+		@GetMapping("/cadastraproduto")
+		public String cadastrarproduto() {
+			return "home/cadastraproduto";
+		}
+		@GetMapping("/cadastracliente")
+		public String cadastrarcliente() {
+			return "home/cadastrarcliente";
+		}
+		@GetMapping("/login")
+		public String login() {
+			return "home/login";
 		}
 		
 }

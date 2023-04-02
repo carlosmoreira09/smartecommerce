@@ -4,11 +4,11 @@ pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Olá Mundo!</title>
+<title>Produto</title>
 </head>
 <body>
 
-<h1>Login</h1>
+<h1>Cadastrar Produto</h1>
 
 </body>
 </html>
