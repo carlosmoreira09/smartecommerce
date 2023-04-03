@@ -12,28 +12,21 @@
 <body>
 
 <h2>Cadastrar Produto</h2>
-	${msg }
-		<core:url value="/produto/cadastrarproduto" var="action" />
+	
+		<core:url value="produto/addproduto" var="action" />
 		<form:form action="${action }" method="post" commandName="produto">
+
 			<div class="form-group">
-				<form:label path="codigo">Codigo do Produto</form:label>
-				<form:input path="codigo"/>
+				<form:label path="descricaoProduto">Descrição do Produto</form:label>
+				<form:input path="descricaoProduto"/>
 			</div>
 			<div class="form-group">
-				<form:label path="nome">Nome do Produto</form:label>
-				<form:input path="nome"/>
+				<form:label path="categoriaProduto">Categoria do Produto</form:label>
+				<form:input path="categoriaProduto"/>
 			</div>
 			<div class="form-group">
-				<form:label path="descricao">Descrição do Produto</form:label>
-				<form:input path="descricao"/>
-			</div>
-			<div class="form-group">
-				<form:label path="categoria">Categoria do Produto</form:label>
-				<form:input path="categoria"/>
-			</div>
-			<div class="form-group">
-				<form:label path="preco">Valor do Produto</form:label>
-				<form:input path="preco" />
+				<form:label path="valorProduto">Valor do Produto</form:label>
+				<form:input path="valorProduto" />
 			</div>
 
 			<input type="submit" value="Salvar">
