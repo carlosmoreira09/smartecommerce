@@ -1,5 +1,5 @@
 package br.com.fiap.smartecommerce.controller;
 
-public class CadastrarVendedorController {
+public class CadastroVendedorController {
 
 }
