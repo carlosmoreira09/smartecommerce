@@ -16,25 +16,22 @@ public class CadastroProduto {
 	
 	@Id
 	@Column(name = "id_produto")
-	@NotNull
 	@SequenceGenerator(name = "produto", sequenceName = "sq_tb_produto", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto")
 	private int id_produto;
 	
 	@Column(name = "ds_produto", nullable = false, length = 50)
-	@NotNull
 	private String descricaoProduto;
 	
 	@Column(name = "vl_produto")
-	@NotNull
+	
 	private double valorProduto;
 	
 	@Column(name = "categoria_produto")
 	private String categoriaProduto;
 
-	public CadastroProduto(int id_produto, String descricaoProduto, double valorProduto, String categoriaProduto) {
+	public CadastroProduto(String descricaoProduto, double valorProduto, String categoriaProduto) {
 		super();
-		this.id_produto = id_produto;
 		this.descricaoProduto = descricaoProduto;
 		this.valorProduto = valorProduto;
 		this.categoriaProduto = categoriaProduto;
