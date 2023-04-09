@@ -1,5 +1,8 @@
 package br.com.fiap.smartecommerce.dao;
 
-public class CadastroClienteDAO {
+import br.com.fiap.smartecommerce.model.CadastroCliente;
+
+
+public interface CadastroClienteDAO extends GenericDAO<CadastroCliente, Integer> {
 
 }
