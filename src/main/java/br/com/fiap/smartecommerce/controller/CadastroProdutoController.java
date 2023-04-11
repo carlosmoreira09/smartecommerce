@@ -1,10 +1,14 @@
 package br.com.fiap.smartecommerce.controller;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +30,7 @@ public class CadastroProdutoController {
 	@GetMapping("/")
 	public ModelAndView index() {
 			
-		return new ModelAndView("produto/listar").addObject("produtos", dao.listar());
+		return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar());
 	}
 	
 	@GetMapping("cadastroproduto")
@@ -37,19 +41,18 @@ public class CadastroProdutoController {
 	
 	@Transactional
 	@PostMapping("addproduto")
-	public ModelAndView submit(CadastroProduto produto, RedirectAttributes redirect, ModelMap model) {
+	public ModelAndView submit(CadastroProduto produto, RedirectAttributes redirect) throws ServletException, IOException {
 		
 
 		try { 
-        	
-        	redirect.addFlashAttribute("msg", "Produto cadastrado");
-        	
+			       	
         	dao.cadastrar(produto);
         	
-        	return new ModelAndView("redirect:/produto/cadastroproduto");
-
-        } catch(Exception e) {
+        	redirect.addFlashAttribute("msg", "Produto cadastrado com sucesso");
         	
+        	return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar());
+        	
+        } catch(Exception e) {
         	e.printStackTrace();
         	return new ModelAndView("produto/cadastroproduto").addObject("msg", e.getMessage());
         }
@@ -58,7 +61,7 @@ public class CadastroProdutoController {
 	
 	@GetMapping("listar")
 	public ModelAndView listar() {
-		return new ModelAndView("produto/listar").addObject("produtos", dao.listar());
+		return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar());
 	}
 	
 	@GetMapping("editar/{id}")
@@ -75,20 +78,22 @@ public class CadastroProdutoController {
 		} catch (Exception e) {
 			return new ModelAndView("produto/edicao").addObject("msg", e.getMessage());
 		}
-		return new ModelAndView("redirect:/produto/listar");
+		return new ModelAndView("redirect:/produto/listarprodutos");
 	}
 
 
 	@Transactional
 	@PostMapping("excluir")
-	public String excluir(int codigo, RedirectAttributes redirect) {
+	public ModelAndView excluir(HttpServletRequest request, RedirectAttributes redirect) {
 		try {
-			dao.remover(codigo);
+			
+			int id_produto = Integer.parseInt(request.getParameter("id_produto"));
+			dao.remover(id_produto);
 			redirect.addFlashAttribute("msg", "Excluido!");
 		}catch(Exception e) {
-			redirect.addFlashAttribute("msg", e.getMessage());
+			redirect.addFlashAttribute("msg", "Codigo não Encontrado! Erro:" + e.getMessage());
 		}
-		return "redirect:/produto/listar";
+		return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar());
 	}
 
 }

@@ -30,17 +30,6 @@ public class CadastroProduto {
 	@Column(name = "categoria_produto")
 	private String categoriaProduto;
 
-	public CadastroProduto(String descricaoProduto, double valorProduto, String categoriaProduto) {
-		super();
-		this.descricaoProduto = descricaoProduto;
-		this.valorProduto = valorProduto;
-		this.categoriaProduto = categoriaProduto;
-	}
-
-	public CadastroProduto() {
-		super();
-
-	}
 	
 	public int getId_produto() {
 		return id_produto;

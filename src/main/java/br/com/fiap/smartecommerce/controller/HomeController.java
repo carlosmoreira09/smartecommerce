@@ -9,7 +9,7 @@
 
 		@GetMapping("/")
 		public String index() {
-			return "home/index";
+			return "produto/listarprodutos";
 		}
 		
 		@GetMapping("/login")

@@ -8,8 +8,12 @@
 <tags:template title="Lista de Produtos">
 
 	<h1>Produtos cadastrados</h1>
+    	<br>
+       	${msg } <a href="cadastroproduto">Cadastrar Outro Produto</a>
+       	<hr>
+
 	<table class="table">
-		<tr>
+		<tr>	
 			<th>ID do Produto</th>
 			<th>Descrição do Produto</th>
 			<th>Valor do Produto</th>
@@ -18,15 +22,15 @@
 		</tr>
 		<c:forEach items="${produtos }" var="p">
 			<tr>
-				<td>${p.id_produto }</td>
-				<td>${p.ds_produto }</td>
-				<td>${p.vl_produto }</td>
-				<td>${p.categoria_produto }</td>
+				<td>${p.getId_produto() }</td>
+				<td>${p.getDescricaoProduto() }</td>
+				<td>${p.getValorProduto() }</td>
+				<td>${p.getCategoriaProduto() }</td>
 				<td>
-					<c:url value="/produto/editar/${p.id_produto }" var="link"/>
+					<c:url value="/produto/editar/${p.getId_produto() }" var="link"/>
 					<a href="${link}" class="btn btn-primary btn-sm">Editar</a>
 					
-					<button type="button" onclick="codigo.value = ${p.id_produto}" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#excluirModal">
+					<button type="button" onclick="id_produto.value = ${p.getId_produto() }" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#excluirModal">
 	 					Excluir
 					</button>
 					
@@ -49,7 +53,7 @@
 	        Realmente deseja excluir o produto?
 	      </div>
 	      <div class="modal-footer">
-	      	<c:url value="/produto/excluir" var="action"/>
+	      	<c:url value="/produto/excluir/" var="action"/>
 	      	<form action="${action }" method="post">
 	      		<input type="hidden" name="id_produto" id="id_produto">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
