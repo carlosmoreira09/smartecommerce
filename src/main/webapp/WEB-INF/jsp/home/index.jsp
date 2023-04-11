@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="core" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="h" %>
+<%@ taglib uri="http://web.chuntung.com/jsp/tags" prefix="tags"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Olá Mundo!</title>
-</head>
-<body>
+<title>SmartEcommerce</title>
 
-<h1>Index</h1>
-
-</body>
-</html>
+<tags:template title="SmartEcommerce">
+ 
+<div class="container">
+	<div class="col-8 mt-2">
+	<h2 class="display-4"> SmartEcommerce</h2>
+	<hr>
+	<p class="lead"> Utilize o menu acima para navegar pelo site</p>
+	</div>
+</div>
+</tags:template>

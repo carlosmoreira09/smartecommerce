@@ -46,12 +46,10 @@ public class CadastroProdutoController {
 
 		try { 
 			       	
-        	dao.cadastrar(produto);
-        	
-        	redirect.addFlashAttribute("msg", "Produto cadastrado com sucesso");
-        	
-        	return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar());
-        	
+    	dao.cadastrar(produto);  	
+
+    	return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar()).addObject("msg" ,"Produto cadastrado com sucesso");
+    	
         } catch(Exception e) {
         	e.printStackTrace();
         	return new ModelAndView("produto/cadastroproduto").addObject("msg", e.getMessage());
@@ -66,34 +64,35 @@ public class CadastroProdutoController {
 	
 	@GetMapping("editar/{id}")
 	public ModelAndView editar(@PathVariable("id") int codigo) {
-		return new ModelAndView("produto/edicao").addObject("produto", dao.buscar(codigo));
+		return new ModelAndView("produto/editarproduto").addObject("produto", dao.buscar(codigo));
 	}
 
 	@Transactional
 	@PostMapping("editar")
-	public ModelAndView editar(CadastroProduto produto, RedirectAttributes redirect) {
+	public ModelAndView editar(CadastroProduto produto) {
 		try {
 			dao.atualizar(produto);
-			redirect.addFlashAttribute("msg", "Atualizado");
+			
 		} catch (Exception e) {
-			return new ModelAndView("produto/edicao").addObject("msg", e.getMessage());
+			return new ModelAndView("produto/editarproduto").addObject("msg","Codigo não Encontrado! Erro:" + e.getMessage());
 		}
-		return new ModelAndView("redirect:/produto/listarprodutos");
+		return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar()).addObject("msg" ,"Produto Editado com sucesso");
 	}
 
 
 	@Transactional
 	@PostMapping("excluir")
-	public ModelAndView excluir(HttpServletRequest request, RedirectAttributes redirect) {
+	public ModelAndView excluir(HttpServletRequest request) {
 		try {
 			
 			int id_produto = Integer.parseInt(request.getParameter("id_produto"));
 			dao.remover(id_produto);
-			redirect.addFlashAttribute("msg", "Excluido!");
+			
 		}catch(Exception e) {
-			redirect.addFlashAttribute("msg", "Codigo não Encontrado! Erro:" + e.getMessage());
+			
+			return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar()).addObject("msg" ,"Codigo não Encontrado! Erro:" + e.getMessage());
 		}
-		return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar());
+		return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar()).addObject("msg" ,"Produto Excluido com sucesso");
 	}
 
 }

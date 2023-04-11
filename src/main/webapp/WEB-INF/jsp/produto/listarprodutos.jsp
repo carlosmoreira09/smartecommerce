@@ -6,13 +6,20 @@
 <%@ taglib uri="http://web.chuntung.com/jsp/tags" prefix="tags"%>
 
 <tags:template title="Lista de Produtos">
+<title>Lista de Produto</title>
 
 	<h1>Produtos cadastrados</h1>
     	<br>
-       	${msg } <a href="cadastroproduto">Cadastrar Outro Produto</a>
+       	${msg }
+       	<br>
+       	
+       	<c:url value="cadastroproduto" var="link"/>
+		<a href="${link}" class="btn btn-success">Cadastrar Outro Produto</a> 
+       	
        	<hr>
 
-	<table class="table">
+	<table class="table table-striped">
+		<thead class="table-light">
 		<tr>	
 			<th>ID do Produto</th>
 			<th>Descrição do Produto</th>
@@ -20,6 +27,7 @@
 			<th>Categoria do Produto</th>
 			<th></th>
 		</tr>
+		</thead>
 		<c:forEach items="${produtos }" var="p">
 			<tr>
 				<td>${p.getId_produto() }</td>
