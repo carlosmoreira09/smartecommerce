@@ -13,11 +13,11 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity 
-@Table(name= "tb_cadastroCliente")
+@Table(name= "tb_cliente")
 public class CadastroCliente {
 	
 	@Id
-	@SequenceGenerator(name="cadastroCliente",sequenceName="sql_tbl_cadastroCliente",allocationSize=1)
+	@SequenceGenerator(name="cliente",sequenceName="sql_tbl_cliente",allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "id_cliente")
 	private Integer id;
@@ -45,18 +45,6 @@ public class CadastroCliente {
     @Column(name = "dh_criacao")
     private Calendar dataCriacao;
 	
-	public CadastroCliente() { 
-    	super();
-    }
-    public CadastroCliente(String nome_cliente, int telefone_cliente, int cep_cliente, String registro_cliente, String endereco_cliente) { 
-    	super();
-    	this.telefone_cliente = telefone_cliente;
-    	this.cep_cliente = cep_cliente;
-    	this.endereco_cliente = endereco_cliente;
-    	this.nome_cliente = nome_cliente;
-    	this.cpf_cliente = registro_cliente;
-    	    	
-    	}
 	public Integer getId() {
 		return id;
 	}

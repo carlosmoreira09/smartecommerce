@@ -1,11 +1,6 @@
 package br.com.fiap.smartecommerce.controller;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.smartecommerce.dao.CadastroProdutoDAO;
 import br.com.fiap.smartecommerce.model.CadastroProduto;
@@ -33,7 +27,7 @@ public class CadastroProdutoController {
 		return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar());
 	}
 	
-	@GetMapping("cadastroproduto")
+	@GetMapping("cadastro")
 	public ModelAndView cadastrarproduto(CadastroProduto produto) {
 			ModelAndView mv = new ModelAndView("produto/cadastroproduto", "produto", new CadastroProduto());
 	       return mv;
@@ -41,15 +35,12 @@ public class CadastroProdutoController {
 	
 	@Transactional
 	@PostMapping("addproduto")
-	public ModelAndView submit(CadastroProduto produto, RedirectAttributes redirect) throws ServletException, IOException {
+	public ModelAndView submit(CadastroProduto produto) {
 		
-
-		try { 
-			       	
+		try { 		       	
     	dao.cadastrar(produto);  	
-
     	return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar()).addObject("msg" ,"Produto cadastrado com sucesso");
-    	
+    
         } catch(Exception e) {
         	e.printStackTrace();
         	return new ModelAndView("produto/cadastroproduto").addObject("msg", e.getMessage());
@@ -74,7 +65,7 @@ public class CadastroProdutoController {
 			dao.atualizar(produto);
 			
 		} catch (Exception e) {
-			return new ModelAndView("produto/editarproduto").addObject("msg","Codigo não Encontrado! Erro:" + e.getMessage());
+			return new ModelAndView("produto/editarproduto").addObject("msg","Produto não Encontrado! Erro:" + e.getMessage());
 		}
 		return new ModelAndView("produto/listarprodutos").addObject("produtos", dao.listar()).addObject("msg" ,"Produto Editado com sucesso");
 	}

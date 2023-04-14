@@ -35,8 +35,8 @@
 	          Vendedores
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href='<c:url value="/produto/cadastroproduto"/>'>Cadastrar</a>
-	          <a class="dropdown-item" href='<c:url value="/produto/listar"/>'>Listar</a>
+	          <a class="dropdown-item" href='<c:url value="/vendedor/cadastrovendedor"/>'>Cadastrar</a>
+	          <a class="dropdown-item" href='<c:url value="/vendedor/listar"/>'>Listar</a>
 	        </div>
 	      </li>
 	     	      <li class="nav-item dropdown">
@@ -44,8 +44,8 @@
 	          Clientes
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href='<c:url value="/produto/cadastroproduto"/>'>Cadastrar</a>
-	          <a class="dropdown-item" href='<c:url value="/produto/listar"/>'>Listar</a>
+	          <a class="dropdown-item" href='<c:url value="/cliente/cadastrocliente"/>'>Cadastrar</a>
+	          <a class="dropdown-item" href='<c:url value="/cliente/listar"/>'>Listar</a>
 	        </div>
 	      </li>
 	     

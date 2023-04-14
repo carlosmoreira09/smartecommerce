@@ -17,11 +17,11 @@ import javax.validation.constraints.NotNull;
 
 
 @Entity
-@Table(name = "tb_cadastroVendedor")
+@Table(name = "tb_vendedor")
 public class CadastroVendedor {
 
 	@Id
-	@SequenceGenerator(name="cadastroVendedor",sequenceName="sql_tbl_cadastroVendedor",allocationSize=1)
+	@SequenceGenerator(name="vendedor",sequenceName="sql_tbl_vendedor",allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "id_vendedor")
 	private Integer id;
@@ -30,21 +30,21 @@ public class CadastroVendedor {
 	@NotNull
 	private String nome_vendedor;
 	
-	@Column(name = "cpf", length = 11)
-	private String cpf;
+	@Column(name = "cpf_vendedor", length = 11)
+	private String cpf_vendedor;
 	
-	@Column(name = "cnpj", length = 14)
-	private String cnpj;
+	@Column(name = "cnpj_vendedor", length = 14)
+	private String cnpj_vendedor;
 	
-	@Column(name = "endereco", length = 25)
-	private String endereco;
 	
-	@Column(name = "telefone", length = 12)
-	@NotNull
-	private int telefone;
+	@Column(name = "endereco_vendedor", length = 25)
+	private String endereco_vendedor;
 	
-	@Column(name = "cep", length = 25)
-	private int cep;
+	@Column(name = "telefone_vendedor", length = 12)
+	private int telefone_vendedor;
+	
+	@Column(name = "cep_vendedor", length = 25)
+	private int cep_vendedor;
 	
 	@CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -52,22 +52,7 @@ public class CadastroVendedor {
     private Calendar dataCriacao;
 	
 	
-    public CadastroVendedor() { 
-    	super();
-    }
-    public CadastroVendedor(String nome_vendedor, int telefone, int cep, String registro, String endereco) { 
-    	super();
-    	this.telefone = telefone;
-    	this.cep = cep;
-    	this.endereco = endereco;
-    	this.nome_vendedor = nome_vendedor;
-    	if(registro.length() == 11) { 
-    		this.cpf = registro;
-    	} else {
-    		this.cnpj = registro;
-    	}
-    }
-	
+    	
 	public Integer getId() {
     return id;
     }
@@ -76,63 +61,66 @@ public class CadastroVendedor {
     this.id = id;
     }
     
-    public String getNomeVendedor() {
+    public String getNome_vendedor() {
     return nome_vendedor;
     }
 
 
-    public void setNomeVendedor(String nome_vendedor) {
+    public void setNome_vendedor(String nome_vendedor) {
     this.nome_vendedor = nome_vendedor;
     }
     
-    public String getCpf() {
-    return cpf;
+    public String getCpf_vendedor() {	
+    return cpf_vendedor;
     }
 
 
-    public void setCpf(String cpf) {
-    this.cpf = cpf;
+    public void setCpf_vendedor(String cpf_vendedor) {
+    this.cpf_vendedor = cpf_vendedor;
    	}
-   
-    public String getCnpj() {
-    return cnpj;
+      
+
+    public String getCnpj_vendedor() {	
+    return cnpj_vendedor;
+    }
+
+
+    public void setCnpj_vendedor(String cnpj_vendedor) {
+    this.cnpj_vendedor = cnpj_vendedor;
+   	}
+    
+    public int getTelefone_vendedor() {
+    return telefone_vendedor;
     }
     
-    public void setCnpj(String cnpj) {
-    this.cnpj = cnpj;
-   	}
-    
-    public int getTelefone() {
-    return telefone;
-    }
-    
-    public void setTelefone(int telefone) {
-    this.telefone = telefone;
+    public void setTelefone_vendedor(int telefone_vendedor) {
+    this.telefone_vendedor = telefone_vendedor;
    	}
        
-    public Calendar getDataCriacao() {
-       return dataCriacao;
+    
+    public String getEndereco_vendedor() {
+    return endereco_vendedor;
+    }
+
+
+    public void setEndereco_vendedor(String endereco_vendedor) {
+    this.endereco_vendedor = endereco_vendedor;
     }
     
-    public String getEndereco() {
-    return endereco;
+    public int getCep_vendedor() {
+    return cep_vendedor;
     }
     
-    public int getCep() {
-    return cep;
-    }
-    
-    public void setCep(int cep) {
-    this.cep = cep;
+    public void setCep_vendedor(int cep_vendedor) {
+    this.cep_vendedor = cep_vendedor;
    	}
 
-
-    public void setEndereco(String endereco) {
-    this.endereco = endereco;
-    }
 
     public void setDataCriacao(Calendar dataCriacao) {
        this.dataCriacao = dataCriacao;
     }
+    public Calendar getDataCriacao() {
+        return dataCriacao;
+     }
        
 }

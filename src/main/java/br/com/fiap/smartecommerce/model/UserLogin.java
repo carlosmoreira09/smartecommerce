@@ -17,14 +17,14 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "tb_userlogin")
+@Table(name = "tb_usuario")
 
 public class UserLogin {
 
 	@Id
-	@SequenceGenerator(name="userlogin",sequenceName="sql_tbl_userlogin",allocationSize=1)
+	@SequenceGenerator(name="usuario",sequenceName="sql_tbl_usuario",allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "id_userlogin")
+	@Column(name = "id_usuario")
 	private Integer id;
 	
 	@Column(name = "usuario", length = 25)
@@ -40,17 +40,7 @@ public class UserLogin {
     @Column(name = "dh_criacao")
     private Calendar dataCriacao;
 	
-	public UserLogin() { 
-		super();
-	}
-	
-	public UserLogin(String usuario, String password) {
-		super();
-		this.usuario = usuario;
-		this.password = password;
-	} 
-	
-	
+		
 	public Integer getId() {
     return id;
     }
