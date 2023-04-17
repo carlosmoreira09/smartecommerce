@@ -1,7 +1,7 @@
 package br.com.fiap.smartecommerce.controller;
 
 import javax.servlet.http.HttpServletRequest;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +14,10 @@ import br.com.fiap.smartecommerce.dao.CadastroVendedorDAO;
 import br.com.fiap.smartecommerce.model.CadastroVendedor;
 
 @Controller
-@RequestMapping("vendedor")
+@RequestMapping("/vendedor")
 public class CadastroVendedorController {
 	
-	
+	@Autowired
 	private CadastroVendedorDAO dao;
 	
 	
@@ -29,7 +29,7 @@ public class CadastroVendedorController {
 	
 	
 	@GetMapping("cadastro")
-	public ModelAndView cadastrarproduto(CadastroVendedor vendedor) { 
+	public ModelAndView cadastrarvendedor(CadastroVendedor vendedor) { 
 		
 	       return new ModelAndView("vendedor/cadastrovendedor", "vendedor", new CadastroVendedor());
 	}
@@ -39,10 +39,10 @@ public class CadastroVendedorController {
 	public ModelAndView submit(CadastroVendedor vendedor) {
 		try { 
 			dao.cadastrar(vendedor);
-			return new ModelAndView("vendedor/cadastrarvendedor").addObject("vendedor", dao.listar()).addObject("msg" ,"Vendedor cadastrado com sucesso");
+			return new ModelAndView("vendedor/listarvendedor");
 		} catch (Exception e) { 
 			e.printStackTrace();
-			return new ModelAndView("vendedor/cadastrarvendedor").addObject("msg", e.getMessage());
+			return new ModelAndView("vendedor/listarvendedor").addObject("msg", e.getMessage());
 		}
 	}
 	

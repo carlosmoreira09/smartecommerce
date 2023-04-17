@@ -22,28 +22,28 @@ public class CadastroVendedor {
 
 	@Id
 	@SequenceGenerator(name="vendedor",sequenceName="sql_tbl_vendedor",allocationSize=1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "vendedor")
 	@Column(name = "id_vendedor")
 	private Integer id;
 	
-	@Column(name = "nome_vendedor", length = 25)
+	@Column(name = "nome_vendedor")
 	@NotNull
 	private String nome_vendedor;
 	
-	@Column(name = "cpf_vendedor", length = 11)
+	@Column(name = "cpf_vendedor")
 	private String cpf_vendedor;
 	
-	@Column(name = "cnpj_vendedor", length = 14)
+	@Column(name = "cnpj_vendedor")
 	private String cnpj_vendedor;
 	
 	
-	@Column(name = "endereco_vendedor", length = 25)
+	@Column(name = "endereco_vendedor")
 	private String endereco_vendedor;
 	
-	@Column(name = "telefone_vendedor", length = 12)
+	@Column(name = "telefone_vendedor")
 	private int telefone_vendedor;
 	
-	@Column(name = "cep_vendedor", length = 25)
+	@Column(name = "cep_vendedor")
 	private int cep_vendedor;
 	
 	@CreationTimestamp
